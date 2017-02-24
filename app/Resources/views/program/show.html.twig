@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Program</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ program.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ program.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ program.description }}</td>
+            </tr>
+            <tr>
+                <th>Subject</th>
+                <td>{{ program.subject }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ program.publisher }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('program_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('program_edit', { 'id': program.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

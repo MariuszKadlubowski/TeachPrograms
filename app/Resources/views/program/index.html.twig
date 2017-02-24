@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Programs list</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Subject</th>
+                <th>Publisher</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for program in programs %}
+            <tr>
+                <td><a href="{{ path('program_show', { 'id': program.id }) }}">{{ program.id }}</a></td>
+                <td>{{ program.title }}</td>
+                <td>{{ program.description }}</td>
+                <td>{{ program.subject }}</td>
+                <td>{{ program.publisher }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('program_show', { 'id': program.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('program_edit', { 'id': program.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('program_new') }}">Create a new program</a>
+        </li>
+        <li>
+            <a href="{{ path('chosenprogram_new') }}">Create relation to class</a>
+        </li>
+        <br>
+        <li>
+            <a href="{{ path('homepage') }}">Back to the MainMenu</a>
+        </li>
+        <li>
+            <a href="{{ path('user_admin') }}">Back to the AdmiMenu</a>
+        </li>
+    </ul>
+{% endblock %}

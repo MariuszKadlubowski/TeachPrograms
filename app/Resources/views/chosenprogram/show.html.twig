@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Chosenprogram</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ chosenProgram.id }}</td>
+            </tr>
+            <tr>
+                <th>Program</th>
+                <td>{{ chosenProgram.program }}</td>
+            </tr>
+            <tr>
+                <th>Class</th>
+                <td>{{ chosenProgram.class }}</td>
+            </tr>
+            <tr>
+                <th>Teacher</th>
+                <td>{{ chosenProgram.teacher }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('chosenprogram_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('chosenprogram_edit', { 'id': chosenProgram.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

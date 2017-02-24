@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Publishers list</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for publisher in publishers %}
+            <tr>
+                <td><a href="{{ path('publisher_show', { 'id': publisher.id }) }}">{{ publisher.id }}</a></td>
+                <td>{{ publisher.name }}</td>
+                <td>{{ publisher.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('publisher_show', { 'id': publisher.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('publisher_edit', { 'id': publisher.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('publisher_new') }}">Create a new publisher</a>
+        </li>
+        <br>
+        <li>
+            <a href="{{ path('user_admin') }}">Back to the AdmiMenu</a>
+        </li>
+    </ul>
+{% endblock %}

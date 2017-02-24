@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Schoolclasses list</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Year</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for schoolClass in schoolClasses %}
+            <tr>
+                <td><a href="{{ path('schoolclass_show', { 'id': schoolClass.id }) }}">{{ schoolClass.id }}</a></td>
+                <td>{{ schoolClass.name }}</td>
+                <td>{{ schoolClass.year }}</td>
+                <td>{{ schoolClass.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('schoolclass_show', { 'id': schoolClass.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('schoolclass_edit', { 'id': schoolClass.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('schoolclass_new') }}">Create a new schoolClass</a>
+        </li>
+        <br>
+        <li>
+            <a href="{{ path('user_admin') }}">Back to the AdmiMenu</a>
+        </li>
+    </ul>
+{% endblock %}

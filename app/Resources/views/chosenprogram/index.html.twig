@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Chosenprograms list</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Program</th>
+                <th>Class</th>
+                <th>Teacher</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chosenProgram in chosenPrograms %}
+            <tr>
+                <td><a href="{{ path('chosenprogram_show', { 'id': chosenProgram.id }) }}">{{ chosenProgram.id }}</a></td>
+                <td>{{ chosenProgram.program }}</td>
+                <td>{{ chosenProgram.class }}</td>
+                <td>{{ chosenProgram.teacher }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('chosenprogram_show', { 'id': chosenProgram.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('chosenprogram_edit', { 'id': chosenProgram.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('chosenprogram_new') }}">Create a new chosenProgram</a>
+        </li>
+        <br>
+        <li>
+            <a href="{{ path('homepage') }}">Back to the MainMenu</a>
+        </li>
+        <li>
+            <a href="{{ path('user_admin') }}">Back to the AdmiMenu</a>
+        </li>
+    </ul>
+{% endblock %}

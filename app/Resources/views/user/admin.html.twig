@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Admin menu</h3>
+
+    <h5>Management of</h5>
+    <ul>
+        <li><a href="{{ path('user_index') }}">Users</a></li>
+        <li><a href="{{ path('subject_index') }}">Subjects</a></li>
+        <li><a href="{{ path('book_index') }}">Books</a></li>
+        <li><a href="{{ path('schoolclass_index') }}">Classes</a></li>
+        <li><a href="{{ path('publisher_index') }}">Publishers</a></li>
+        <li><a href="{{ path('program_index') }}">Programs</a></li>
+        <li><a href="{{ path('chosenprogram_index') }}">Chosen programs</a></li><br>
+        <li><a href="{{ path('homepage') }}">Back to menu</a></ul>
+    </ul>
+
+{% endblock %}
